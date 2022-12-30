@@ -2,6 +2,7 @@
 import './styles/modal.css';
 
 import './components/modal';
+import './components/form';
 
 // Bump version
 import { spanVersion } from './components/domLinker';

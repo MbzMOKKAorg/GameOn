@@ -1,9 +1,10 @@
 module.exports = {
   // easy access to DOM elements
   modalContainer: document.querySelector('.bground'),
-  modalBtn: document.querySelectorAll('.modal-btn'),
-  modalCloseBtn: document.querySelectorAll('.close'),
+  modalOpenButton: document.querySelectorAll('.modal-btn'),
+  modalCloseButton: document.querySelectorAll('.close'),
   formData: document.querySelectorAll('.formData'),
-  editNavIcon: document.querySelector('.icon'),
+  formSubmitButton: document.querySelector('.btn-submit'),
+  navListButton: document.getElementById('nav-list-btn'),
   spanVersion: document.getElementById('version')
 };

@@ -1,20 +1,21 @@
-import { modalBtn, modalCloseBtn, modalContainer, editNavIcon } from './domLinker';
+import { modalOpenButton, modalCloseButton, modalContainer, navListButton } from './domLinker';
 
 // ##################################### EVENT LISTENERS #####################################
 
 // click to open form modal
-modalBtn.forEach(btn => btn.addEventListener('click', () => toggleModal()));
+modalOpenButton.forEach(btn => btn.addEventListener('click', () => toggleModal()));
 
 // click to close form modal
-modalCloseBtn.forEach(btn => btn.addEventListener('click', () => toggleModal()));
+modalCloseButton.forEach(btn => btn.addEventListener('click', () => toggleModal()));
 
 // click to toggle navigation bar
-editNavIcon.addEventListener('click', () => toggleNav());
+navListButton.addEventListener('click', (e) => toggleNav(e));
 
-// ##################################### UTILS #####################################
+// ##################################### ACTIONS #####################################
 
 /** * open or close the navigation bar on small screens */
-const toggleNav = () => {
+const toggleNav = (e) => {
+  e.preventDefault();
   const x = document.getElementById('myTopnav');
   if (x.className === 'topnav') {
     // open
