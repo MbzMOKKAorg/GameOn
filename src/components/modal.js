@@ -14,7 +14,7 @@ navListButton.addEventListener('click', (e) => toggleNav(e));
 // ##################################### ACTIONS #####################################
 
 /** * open or close the navigation bar on small screens */
-const toggleNav = (e) => {
+function toggleNav (e) {
   e.preventDefault();
   const x = document.getElementById('myTopnav');
   if (x.className === 'topnav') {
@@ -27,7 +27,7 @@ const toggleNav = (e) => {
 };
 
 /** * open or close the form modal */
-const toggleModal = () => {
+function toggleModal () {
   if (modalContainer.style.display === 'block') {
     // close
     modalContainer.style.display = 'none';
