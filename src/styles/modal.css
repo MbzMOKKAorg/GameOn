@@ -125,24 +125,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
-}
-
-.modal-btn {
-  font-size: 145%;
-  background: #fe142f;
-  display: flex;
-  margin: auto;
-  padding: 2em;
-  color: #fff;
-  padding: 0.75rem 2.5rem;
-  border-radius: 1rem;
-  cursor: pointer;
-}
-
-.modal-btn:hover {
-  background: #3876ac;
 }
 
 .footer {
@@ -171,7 +153,7 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.modal-bground {
   display: none;
   position: fixed;
   z-index: 1;
@@ -181,11 +163,14 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.content {
-  margin: 5% auto;
+.modal-window {
   width: 100%;
+  height: 85%;
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -194,12 +179,35 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+  padding: 36px;
 }
 
 .modal-body {
-  padding: 15px 8%;
+  width: 100%;
+  height: 100%;
   margin: 15px auto;
+}
+
+#confirmation{
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#confirmation .hero-text{
+  position: absolute;
+  top: 35%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#confirmation .btn-close{
+  position: absolute;
+  bottom: 0;
 }
 
 label {
@@ -354,6 +362,7 @@ input[data-error]::after {
 }
 
 .btn-submit,
+.btn-close,
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -490,7 +499,6 @@ input[data-error]::after {
 
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;

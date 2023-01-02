@@ -1,4 +1,4 @@
-import { modalOpenButton, modalCloseButton, modalContainer, navListButton } from './domLinker';
+import { modalOpenButton, modalCloseButton, modalContainer, navListButton, formContainer, formConfirmation } from './domLinker';
 
 // ##################################### EVENT LISTENERS #####################################
 
@@ -28,11 +28,13 @@ function toggleNav (e) {
 
 /** * open or close the form modal */
 function toggleModal () {
-  if (modalContainer.style.display === 'block') {
+  if (modalContainer.style.display === 'flex') {
     // close
     modalContainer.style.display = 'none';
   } else {
     // open
-    modalContainer.style.display = 'block';
+    modalContainer.style.display = 'flex';
+    formContainer.style.display = 'block';
+    formConfirmation.style.display = 'none';
   }
 };

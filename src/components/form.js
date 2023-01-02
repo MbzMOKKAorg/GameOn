@@ -1,4 +1,4 @@
-import { formSubmitButton, formInputNameFirst, formInputNameLast, formInputEmail, formInputBirthDate, formInputQttParticipation, formInputTOS, formInputsRadioLocation } from './domLinker';
+import { formContainer, formConfirmation, formSubmitButton, formInputNameFirst, formInputNameLast, formInputEmail, formInputBirthDate, formInputQttParticipation, formInputTOS, formInputsRadioLocation } from './domLinker';
 
 // ##################################### EVENT LISTENERS #####################################
 
@@ -22,12 +22,11 @@ function submitForm (e) {
   errorCount += validateQttParticipation();
   errorCount += validateRadioLocation();
   errorCount += validateTOS();
-  if (errorCount > 0) {
-    // the form isn't valid because at least 1 field is incorrect
-    window.alert('PAS VALIDE');// TODO
-  } else {
+  if (errorCount === 0) {
     // the form is valid
-    window.alert('C BON');// TODO
+    formContainer.style.display = 'none';
+    formConfirmation.style.display = 'flex';
+    resetForm();
   }
 };
 
@@ -112,4 +111,16 @@ function validateTOS () {
     formDataSetErrorVisibility(formInputTOS, false);
     return false;
   }
+}
+
+/** * reset the form values after the form is sent */
+function resetForm () {
+  formContainer.reset();
+  formDataSetErrorVisibility(formInputNameFirst, false);
+  formDataSetErrorVisibility(formInputNameLast, false);
+  formDataSetErrorVisibility(formInputEmail, false);
+  formDataSetErrorVisibility(formInputBirthDate, false);
+  formDataSetErrorVisibility(formInputQttParticipation, false);
+  formInputsRadioLocation.forEach(input => formDataSetErrorVisibility(input, false));
+  formDataSetErrorVisibility(formInputTOS, false);
 }

@@ -38,23 +38,23 @@
           Vous aimez jouer ? Notre prochain évènement gaming est ouvert
           aux réservations... Places limitées !
         </p>
-        <button class="btn-signup modal-btn">
-          je m'inscris
+        <button class="btn-signup button modal-btn">
+          Je M'inscris
         </button>
       </div>
       <div class="hero-img">
-        <img src="../assets/bg_img.jpg" alt="img" />
+        <img src="../assets/bg_img.jpg" alt="img" draggable="false"/>
       </div>
-      <button class="btn-signup modal-btn">
-        je m'inscris
+      <button class="btn-signup button modal-btn">
+        Je M'inscris
       </button>
     </div>
 
-    <div class="bground">
-      <div class="content">
-        <span class="close"></span>
+    <div class="modal-bground">
+      <div class="modal-window">
+        <span class="close close-modal"></span>
         <div class="modal-body">
-          <form name="reserve">
+          <form name="reserve" id="reserve">
             <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le prénom" data-error-visible="false">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first"/><br>
@@ -119,6 +119,12 @@
             </div>
             <input class="btn-submit button" type="submit" value="C'est parti" />
           </form>
+          <div id="confirmation">
+            <p class="hero-text">Merci pour<br/>votre inscription</p>
+            <button class="btn-close button close-modal">
+              Fermer
+            </button>
+          </div>
         </div>
       </div>
     </div>
