@@ -68,7 +68,7 @@ img {
   border-radius: 15px;
 }
 
-.topnav .icon {
+.topnav #nav-list-btn {
   display: none;
 }
 
@@ -77,7 +77,7 @@ img {
     display: none;
   }
 
-  .topnav a.icon {
+  .topnav a#nav-list-btn {
     float: right;
     display: block;
   }
@@ -88,7 +88,7 @@ img {
     position: relative;
   }
 
-  .topnav.responsive .icon {
+  .topnav.responsive #nav-list-btn {
     position: absolute;
     right: 0;
     top: 0;
@@ -108,7 +108,7 @@ img {
     display: none;
   }
 
-  .topnav a.icon {
+  .topnav a#nav-list-btn {
     float: right;
     display: block;
     margin-top: -15px;
@@ -227,7 +227,7 @@ input {
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -245,13 +245,13 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
 } */
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
