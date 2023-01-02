@@ -78,7 +78,8 @@ function validateBirthdate () {
 
 /** * check if a whole number of participation is inputed */
 function validateQttParticipation () {
-  if (Number.isInteger(Number(formInputQttParticipation.value)) === false) {
+  // must be a non-empty positive integer
+  if (formInputQttParticipation.value.length < 1 || Number.isInteger(Number(formInputQttParticipation.value)) === false || Number(formInputQttParticipation.value) < 0) {
     formDataSetErrorVisibility(formInputQttParticipation, true);
     return true;
   } else {
