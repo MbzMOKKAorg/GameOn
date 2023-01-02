@@ -1,11 +1,13 @@
 module.exports = {
   // easy access to DOM elements
-  modalContainer: document.querySelector('.bground'),
-  modalOpenButton: document.querySelectorAll('.modal-btn'),
-  modalCloseButton: document.querySelectorAll('.close'),
+  modalContainer: document.querySelector('.modal-bground'),
+  modalOpenButton: document.querySelectorAll('.btn-signup'),
+  modalCloseButton: document.querySelectorAll('.close-modal'),
 
   navListButton: document.getElementById('nav-list-btn'),
 
+  formConfirmation: document.getElementById('confirmation'),
+  formContainer: document.getElementById('reserve'),
   formData: document.querySelectorAll('.formData'),
   formSubmitButton: document.querySelector('.btn-submit'),
 
