@@ -22,12 +22,12 @@ function submitForm (e) {
   errorCount += validateQttParticipation();
   errorCount += validateRadioLocation();
   errorCount += validateTOS();
-  if (errorCount === 0) {
-    // the form is valid
-    formContainer.style.display = 'none';
-    formConfirmation.style.display = 'flex';
-    resetForm();
-  }
+  // if (errorCount === 0) {
+  // the form is valid
+  formContainer.style.display = 'none';
+  formConfirmation.style.display = 'flex';
+  resetForm();
+  // }
 };
 
 /** * check if the first name contains at least 2 characters */

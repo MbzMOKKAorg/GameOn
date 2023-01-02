@@ -1,7 +1,7 @@
 module.exports = {
   // easy access to DOM elements
   modalContainer: document.querySelector('.modal-bground'),
-  modalOpenButton: document.querySelectorAll('.modal-btn'),
+  modalOpenButton: document.querySelectorAll('.btn-signup'),
   modalCloseButton: document.querySelectorAll('.close-modal'),
 
   navListButton: document.getElementById('nav-list-btn'),
