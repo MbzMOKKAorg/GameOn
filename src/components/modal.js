@@ -1,4 +1,5 @@
 import { modalOpenButton, modalCloseButton, modalContainer, navListButton, formContainer, formConfirmation } from './domLinker';
+import { resetForm } from './form';
 
 // ##################################### EVENT LISTENERS #####################################
 
@@ -34,7 +35,8 @@ function toggleModal () {
   } else {
     // open
     modalContainer.style.display = 'flex';
-    formContainer.style.display = 'block';
+    formContainer.style.display = 'flex';
     formConfirmation.style.display = 'none';
+    resetForm();
   }
 };
