@@ -1,5 +1,7 @@
+/**
+  * Easy access to DOM elements
+*/
 module.exports = {
-  // easy access to DOM elements
   modalContainer: document.querySelector('.modal-bground'),
   modalOpenButton: document.querySelectorAll('.btn-signup'),
   modalCloseButton: document.querySelectorAll('.close-modal'),
@@ -21,5 +23,4 @@ module.exports = {
   formInputNews: document.getElementById('checkbox2'),
 
   spanVersion: document.getElementById('version')
-
 };

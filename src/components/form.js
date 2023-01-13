@@ -2,8 +2,10 @@ import { formContainer, formConfirmation, formSubmitButton, formInputNameFirst, 
 
 // ##################################### EVENT LISTENERS #####################################
 
+// Click to submit the form
 formSubmitButton.addEventListener('click', (e) => submitForm(e));
 
+// Individually validate an input when its value changes
 formInputNameFirst.addEventListener('change', () => validateNameFirst());
 formInputNameLast.addEventListener('change', () => validateNameLast());
 formInputEmail.addEventListener('change', () => validateEmail());
@@ -14,7 +16,12 @@ formInputTOS.addEventListener('change', () => validateTOS());
 
 // ##################################### ACTIONS #####################################
 
-/** * shows or hides the error message of a field */
+/**
+  * Check if a generic input is valid or not
+  * @param {Boolean} validationCondition
+  * @param {HTMLElement} inputNode
+  * @return {Boolean} Is there an error ?
+*/
 function validateGenericInput (validationCondition, inputNode) {
   if (validationCondition) {
     formDataSetErrorVisibility(inputNode, false);
@@ -25,12 +32,19 @@ function validateGenericInput (validationCondition, inputNode) {
   }
 }
 
-/** * shows or hides the error message of a field */
+/**
+  * Shows or hides the error message of a field
+  * @param {HTMLElement} inputNode
+  * @param {Boolean} isVisible
+*/
 function formDataSetErrorVisibility (inputNode, isVisible) {
   inputNode.parentElement.setAttribute('data-error-visible', isVisible);
 }
 
-/** * submit the registration form */
+/**
+  * Checks if every inputs are valid beforehand, submit the form if so
+  * @param {Event} e
+*/
 function submitForm (e) {
   e.preventDefault();
   let errorCount = 0;
@@ -42,39 +56,57 @@ function submitForm (e) {
   errorCount += validateRadioLocation();
   errorCount += validateTOS();
   if (errorCount === 0) {
-    // the form is valid
+    // The form is valid
     formContainer.style.display = 'none';
     formConfirmation.style.display = 'flex';
   }
 };
 
-/** * check if the first name contains at least 2 characters */
+/**
+  * Check if the first name contains at least 2 characters
+  * @return {Boolean} Is there an error ?
+*/
 function validateNameFirst () {
   return validateGenericInput(formInputNameFirst.value.length >= 2, formInputNameFirst);
 }
 
-/** * check if the last name contains at least 2 characters */
+/**
+  * Check if the last name contains at least 2 characters
+  * @return {Boolean} Is there an error ?
+*/
 function validateNameLast () {
   return validateGenericInput(formInputNameLast.value.length >= 2, formInputNameLast);
 }
 
-/** * check if the email is valid */
+/**
+  * Check if the email is valid
+  * @return {Boolean} Is there an error ?
+*/
 function validateEmail () {
   const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   return validateGenericInput(formInputEmail.value.match(regex) !== null, formInputEmail);
 }
 
-/** * check if a birthdate is selected */
+/**
+  * Check if a birthdate is selected
+  * @return {Boolean} Is there an error ?
+*/
 function validateBirthdate () {
   return validateGenericInput(formInputBirthDate.value.length >= 1, formInputBirthDate);
 }
 
-/** * check if a non-empty positive integer of participation is inputed */
+/**
+  * Check if a non-empty positive integer of participation is inputed
+  * @return {Boolean} Is there an error ?
+*/
 function validateQttParticipation () {
   return validateGenericInput(formInputQttParticipation.value.length > 0 && Number.isInteger(Number(formInputQttParticipation.value)) === true && Number(formInputQttParticipation.value) >= 0, formInputQttParticipation);
 }
 
-/** * check if a location is selected */
+/**
+  * Check if a location is selected
+  * @return {Boolean} Is there an error ?
+*/
 function validateRadioLocation () {
   let error = true;
   for (const input of formInputsRadioLocation) {
@@ -89,12 +121,17 @@ function validateRadioLocation () {
   return error;
 }
 
-/** * check if the Terme Of Service are agreed */
+/**
+  * Check if the Terms Of Service are agreed
+  * @return {Boolean} Is there an error ?
+*/
 function validateTOS () {
   return validateGenericInput(formInputTOS.checked, formInputTOS);
 }
 
-/** * reset the form values when the form is opened */
+/**
+  * Reset the form values when the form is opened
+*/
 export function resetForm () {
   formContainer.reset();
   formDataSetErrorVisibility(formInputNameFirst, false);
