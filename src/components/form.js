@@ -6,13 +6,13 @@ import { formContainer, formConfirmation, formSubmitButton, formInputNameFirst, 
 formSubmitButton.addEventListener('click', (e) => submitForm(e));
 
 // Individually validate an input when its value changes
-formInputNameFirst.addEventListener('change', () => validateNameFirst());
-formInputNameLast.addEventListener('change', () => validateNameLast());
-formInputEmail.addEventListener('change', () => validateEmail());
+formInputNameFirst.addEventListener('input', () => validateNameFirst());
+formInputNameLast.addEventListener('input', () => validateNameLast());
+formInputEmail.addEventListener('input', () => validateEmail());
 formInputBirthDate.addEventListener('blur', () => validateBirthdate());
-formInputQttParticipation.addEventListener('change', () => validateQttParticipation());
-formInputsRadioLocation.forEach((input) => { input.addEventListener('change', () => validateRadioLocation()); });
-formInputTOS.addEventListener('change', () => validateTOS());
+formInputQttParticipation.addEventListener('input', () => validateQttParticipation());
+formInputsRadioLocation.forEach((input) => { input.addEventListener('input', () => validateRadioLocation()); });
+formInputTOS.addEventListener('input', () => validateTOS());
 
 // ##################################### ACTIONS #####################################
 
@@ -88,11 +88,17 @@ function validateEmail () {
 }
 
 /**
-  * Check if a birthdate is selected
+  * Check if a birthdate is selected (cannot be in the future)
   * @return {Boolean} Is there an error ?
 */
 function validateBirthdate () {
-  return validateGenericInput(formInputBirthDate.value.length >= 1, formInputBirthDate);
+  if (validateGenericInput(formInputBirthDate.value.length >= 1, formInputBirthDate)) {
+    return false;
+  } else {
+    const maxDate = new Date();
+    const formDate = new Date(formInputBirthDate.value);
+    return validateGenericInput(formDate < maxDate, formInputBirthDate);
+  }
 }
 
 /**
