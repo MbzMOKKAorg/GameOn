@@ -1,5 +1,5 @@
 /* Inject css */
-import './styles/modal.css';
+import './styles/style.css';
 
 import './components/modal';
 import './components/form';

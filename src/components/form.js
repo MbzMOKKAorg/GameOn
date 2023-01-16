@@ -6,13 +6,13 @@ import { formContainer, formConfirmation, formSubmitButton, formInputNameFirst, 
 formSubmitButton.addEventListener('click', (e) => submitForm(e));
 
 // Individually validate an input when its value changes
-formInputNameFirst.addEventListener('input', () => validateNameFirst());
-formInputNameLast.addEventListener('input', () => validateNameLast());
-formInputEmail.addEventListener('input', () => validateEmail());
-formInputBirthDate.addEventListener('blur', () => validateBirthdate());
-formInputQttParticipation.addEventListener('input', () => validateQttParticipation());
-formInputsRadioLocation.forEach((input) => { input.addEventListener('input', () => validateRadioLocation()); });
-formInputTOS.addEventListener('input', () => validateTOS());
+formInputNameFirst.addEventListener('input', validateNameFirst);
+formInputNameLast.addEventListener('input', validateNameLast);
+formInputEmail.addEventListener('input', validateEmail);
+formInputBirthDate.addEventListener('blur', validateBirthdate);
+formInputQttParticipation.addEventListener('input', validateQttParticipation);
+formInputsRadioLocation.forEach((input) => { input.addEventListener('input', validateRadioLocation); });
+formInputTOS.addEventListener('input', validateTOS);
 
 // ##################################### ACTIONS #####################################
 
@@ -93,8 +93,9 @@ function validateEmail () {
 */
 function validateBirthdate () {
   if (validateGenericInput(formInputBirthDate.value.length >= 1, formInputBirthDate)) {
-    return false;
+    return true;
   } else {
+    // If date isn't empty, check if the date isn't in the future
     const maxDate = new Date();
     const formDate = new Date(formInputBirthDate.value);
     return validateGenericInput(formDate < maxDate, formInputBirthDate);

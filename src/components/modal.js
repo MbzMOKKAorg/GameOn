@@ -4,10 +4,10 @@ import { resetForm } from './form';
 // ##################################### EVENT LISTENERS #####################################
 
 // Click to open form modal
-modalOpenButton.forEach(btn => btn.addEventListener('click', () => toggleModal()));
+modalOpenButton.forEach(btn => btn.addEventListener('click', toggleModal));
 
 // Click to close form modal
-modalCloseButton.forEach(btn => btn.addEventListener('click', () => toggleModal()));
+modalCloseButton.forEach(btn => btn.addEventListener('click', toggleModal));
 
 // Click to toggle navigation bar
 navListButton.addEventListener('click', (e) => toggleNav(e));
